@@ -1,0 +1,16 @@
+services:
+  nginx:
+    image: nginx
+    volumes:
+      - ./app:/var/www/html/public
+      - ./nginx-config/:/etc/nginx/conf.d/
+    ports:
+      - 80:80
+    depends_on:
+      - php
+  php:
+    image: php:7.4-fpm
+    volumes:
+     - ./app:/var/www/html/public
+
+  
